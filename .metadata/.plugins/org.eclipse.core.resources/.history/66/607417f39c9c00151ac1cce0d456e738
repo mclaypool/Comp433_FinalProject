@@ -1,0 +1,18 @@
+package com.partner;
+
+public class PartnerRep extends Partner {
+
+	public PartnerRep(String email, String password, String businessName, String contactFirstName,
+			String contactMiddleName, String contactLastName, String phone, String street, String city, String state,
+			String zipCode) {
+		super(email, password, businessName, contactFirstName, contactMiddleName, contactLastName, phone, street, city,
+				state, zipCode);
+		// TODO Auto-generated constructor stub
+	}
+
+	public PartnerRep(String email, String password) {
+		super(email, password);
+		// TODO Auto-generated constructor stub
+	}
+
+}

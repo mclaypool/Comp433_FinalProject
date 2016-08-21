@@ -1,0 +1,64 @@
+1449428681962	Delete element
+1449428707070	Delete element
+1449429074783	Delete element
+1449430737704	Delete element
+1449430837827	Delete elements
+1449430843755	Delete elements
+1449430856468	Delete element
+1449430877080	Delete element
+1449430884322	Rename type 'ShoppingCartDao'
+1449430895805	Delete element
+1449430899352	Delete element
+1449430908862	Rename type 'ProductReviewDao'
+1449431043446	Delete element
+1449434541426	Delete element
+1449434546342	Delete element
+1449436265215	Move file
+1449436427093	Move 'hibernate.cfg.xml' to 'config'
+1449436806005	Rename package 'config'
+1449444291415	Delete element
+1449453923093	Delete element
+1449455088953	Delete element
+1449455953115	Rename resource 'Customer.hbm.xml'
+1449456353049	Copy file
+1449456420614	Rename type 'CustomerRepresentation'
+1449456428944	Rename resource 'CustomerRepresentation.hbm.xml'
+1449456862238	Delete element
+1449456942282	Copy file
+1449456953656	Delete element
+1449456976232	Rename field 'email'
+1449457008619	Rename method 'getEmail'
+1449457019170	Rename method 'setEmail'
+1449457353484	Copy file
+1449460320276	Delete element
+1449464329802	Delete element
+1449464624766	Copy file
+1449471027446	Delete element
+1449471038863	Delete element
+1449471565581	Delete element
+1449471568558	Delete element
+1449472181949	Copy file
+1449478003553	Delete element
+1449481332305	Rename field 'email'
+1449553480751	Encapsulate field 'cancellationRequested'
+1449553500714	Delete element
+1449555450393	Move compilation unit
+1449555490767	Delete element
+1449562115692	Move compilation unit
+1449562127253	Move compilation unit
+1449562135820	Move compilation unit
+1449562155860	Move compilation unit
+1449564632662	Rename local variable 'customerActivity'
+1449564825687	Rename local variable 'customerActivity'
+1449593613578	Rename local variable 'customer'
+1449593634638	Rename local variable 'customer'
+1449602530430	Move compilation unit
+1449602584171	Move compilation unit
+1449602591484	Move compilation unit
+1449602802296	Delete element
+1449602968083	Delete element
+1449603163978	Delete element
+1449611115130	Rename local variable 'customerLogic'
+1449611370032	Rename local variable 'customerLogic'
+1449611437433	Rename local variable 'customerLogic'
+1449611478002	Rename local variable 'customerLogic'

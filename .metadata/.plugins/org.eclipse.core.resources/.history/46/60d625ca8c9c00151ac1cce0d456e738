@@ -1,0 +1,32 @@
+package com.customer;
+
+public class CustomerRepresentation extends Customer
+{
+	/**************************************************************************
+	* members
+	**************************************************************************/
+
+	
+	/**************************************************************************
+	* constructor
+	**************************************************************************/	
+	public CustomerRepresentation(){}
+	
+	public CustomerRepresentation(String email, String firstName, String middleName, 
+			String lastName, String password, String phone, String street, String city, 
+			String state, String zipCode) 
+	{
+		super(email, firstName, middleName, lastName, 
+				password, phone, street, city, state, zipCode);
+	}
+	
+	public CustomerRepresentation(String email, String password) 
+	{
+		super(email, password);
+	}
+
+	/**************************************************************************
+	* methods
+	**************************************************************************/
+
+}

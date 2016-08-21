@@ -1,0 +1,12 @@
+/******************************************************************************
+* Class:	PartnerLogicLayer
+* Purpose:	
+*******************************************************************************
+* Style:		https://google.github.io/styleguide/javaguide.html
+* Column limit: 80
+******************************************************************************/
+package com.partner;
+
+public abstract class Partner {
+
+}

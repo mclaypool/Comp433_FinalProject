@@ -1,0 +1,20 @@
+package com.partner.service;
+
+import java.util.List;
+import javax.jws.WebService;
+import com.partner.PartnerRep;
+import com.partner.PartnerRequest;
+import com.order.OrderRep;
+import com.order.OrderRequest;
+import com.product.ProductRep;
+
+@WebService
+public interface PartnerService {
+	
+	//Partner functions
+	public PartnerRep getPartner(PartnerRequest request);
+	public PartnerRep updatePartner(PartnerRequest request);
+	public void deletePartner(PartnerRequest request);
+	public PartnerRep createPartner(PartnerRequest request);
+
+}

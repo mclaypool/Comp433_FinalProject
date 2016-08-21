@@ -1,0 +1,245 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<style type="text/css">
+
+body {
+	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+	background-color: #666666;
+	margin: 0;
+	padding: 5;
+	color: #000;
+	text-align: center;
+}
+ul, ol, dl {
+	padding: 0;
+	margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;	 
+	padding-right: 15px;
+	padding-left: 15px; 
+	color: #000;
+	alignment-adjust: central;
+}
+h1
+{
+	color: #0404B4; //NILE blue
+}
+h2
+{
+	color: #009933; //NILE green
+a img { 
+	border: none;
+}
+
+a:link {
+	color: #42413C;
+	text-decoration: underline; 
+}
+a:visited {
+	color: #6E6C64;
+	text-decoration: underline;
+}
+a:hover, a:active, a:focus {
+	text-decoration: none;
+}
+
+.container {
+	width: 100%;
+	background-color: #FFFFFF;
+	margin: 0 auto; 
+}
+header {
+	background-color: #F5D0A9; //tan
+}
+.sidebar1 {
+	float: left;
+	width: 30%;
+	background-color: #FFFFFF;
+	padding-bottom: 10px;
+	color: #FFFFFF;
+}
+.content {
+	padding: 10px 0;
+	width: 70%;
+	float: left;
+}
+aside {
+	float: left;
+	width: 100%;
+	background-color: #009933;//NILE green
+	padding: 10px;
+	color: #F0F0F0;
+}
+
+.content ul, .content ol {
+	padding: 0 15px 15px 40px;
+}
+
+
+ul.nav {
+	list-style: none; 
+	width: 100%;
+	border-top: 1px solid #666; 
+	margin-bottom: 15px; /
+	
+}
+ul.nav li {
+	border-bottom: 1px solid #666; 
+}
+ul.nav a, ul.nav a:visited {
+	display: block; 
+	width: 100%;  
+	text-decoration: none;
+	background-color: #0404B4;
+	color: #FFFFFF;
+}
+ul.nav a:hover, ul.nav a:active, ul.nav a:focus { 
+	background-color: #ADB96E;
+	color: #FFFFFF;
+}
+
+footer {
+	padding: 10px 0;
+	background-color: #F5D0A9; //tan
+	position: relative;
+	clear: both; 
+}
+	float: right;
+	margin-left: 8px;
+}
+*/
+.fltlft { 
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { 
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+header, section, footer, aside, article, figure {
+	display: block;
+	vertical-align: middle;
+	box-shadow: 2px 2px #000;
+}
+/* searchbar*/
+<title>Search Box</title>
+<meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
+<!-- CSS styles for standard search box -->
+<style type="text/css">
+	#tfheader{
+		background-color:#c3dfef;
+	}
+	#tfnewsearch{
+		float:center;
+		padding:20px;
+	}
+	.tftextinput{
+		margin: 0;
+		padding: 5px 15px;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size:14px;
+		border:3px solid #009933; border-right:0px;
+		border-top-left-radius: 5px 5px;
+		border-bottom-left-radius: 5px 5px;
+		width: 50%;
+	}
+	.tfbutton {
+	margin: 0;
+	padding: 5px 15px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	color: #0404B4;
+	border: solid 2px #0076a3;
+	border-right: 0px;
+	background: #0095cd;
+	background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+	background: -moz-linear-gradient(top,  #00adee,  #0078a5);
+	border-top-right-radius: 5px 5px;
+	border-bottom-right-radius: 5px 5px;
+	font-style: normal;
+	font-weight: bold;
+	}
+	.tfbutton:hover {
+		text-decoration: none;
+		background: #007ead;
+		background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
+		background: -moz-linear-gradient(top,  #0095cc,  #00678e);
+	}
+	.tfbutton::-moz-focus-inner {
+	  border: 0;
+	}
+	.tfclear{
+		clear:both;
+	}
+</style>
+
+
+-->
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+  <header>
+    <a href="#"><img src="../assets/images/Nilebookslogo.jpg" alt="Nile Books Logo" width=30% id="Nile Books Logo" style="background-color: #FFFFFF; display: block; alig: center;" /></a>
+	<!-- HTML for SEARCH BAR -->
+    <div id="tfheader">
+		<form id="tfnewsearch" method="get" action="http://www.google.com">
+		        <input type="text" class="tftextinput" name="q" size="21" maxlength="120"><input type="submit" value="Search NILE" class="tfbutton">
+		</form>
+	<div class="tfclear"></div>
+	</div>
+  </header>
+  <div class="sidebar1">
+    <ul class="nav">
+      <li><b><a href="popular.html">Popular</a></b></li>
+      <li><b><a href="leisure.html">Leisure</a></b></li>
+      <li><b><a href="textbooks.html">Textbooks</a></b></li>
+      <li><b><a href="sale.html">On Sale!</a></b></li>
+    </ul>
+    <aside>
+      <p> Welcome to NILE books! NILE is dedicated to bringing you the most extensive selection of texts from around the globe. We are proud to offer the largest selection online, even more than Amazon.  Guaranteed.</p>
+    </aside>
+  <!-- end .sidebar1 --></div>
+  <article class="content">
+    <h1>NILE Highlights</h1>
+    <section>
+     <h2>December Book Club</h2>
+      <p>Don't miss out!  Each month, readers vote on a highly rated and provocatice read.  <a href="customer.html">Sign up today</a> to receive a special discount on every book club selection. Members join forums for discussion, highlights, reviews, and more!<br><img src="../assets/images/BookImage-Abundance.png" alt="Abundance Book Cover" width=50% id="AbundanceCover"/></p>
+    </section>
+    <section>
+      <h2>Top Picks</h2>
+      <p>Our customers determine top picks based on reviews.</p>
+      <table width="80%" border="0" cellspacing="10" cellpadding="20">
+        <tr>
+          <td><img src="../assets/images/BookImage-FeminismIsForEverybody.jpg" alt="Feminism Is For Everybody Cover" width=100% padding=5px id="FeminismCover"/></td>
+          <td><img src="../assets/images/BookImage-HowToPractice.jpg" alt="How to Practice Cover" width=100% padding=5px id="PracticeCover2"/></td>
+          <td><img src="../assets/images/BookImage-MythicalManMonth.jpg" alt="How to Practice Cover" width=100% padding=5px id="PracticeCover"/></td>
+        </tr>
+      </table>      
+    </section>
+  <!-- end .content --></article>
+ 
+  <footer>
+    <br><p>Our Mission<br>
+    Our Team<br>
+    Contact Us</p>
+  </footer>
+<!-- end .container --></div>
+
+
+</body>
+</html>
+

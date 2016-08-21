@@ -1,0 +1,6 @@
+package com.customer;
+import com.product.ProductLogic;
+
+public abstract class CustProductLogic extends ProductLogic{
+	
+}

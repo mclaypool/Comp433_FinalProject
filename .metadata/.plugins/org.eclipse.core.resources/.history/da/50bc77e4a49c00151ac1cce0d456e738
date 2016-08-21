@@ -1,0 +1,9 @@
+package com.product;
+
+public class ProductLogic {
+
+	public ProductLogic() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

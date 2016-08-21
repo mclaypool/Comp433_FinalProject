@@ -1,0 +1,53 @@
+package com.product;
+import java.util.List;
+
+public class ProductLogic {
+
+	/**************************************************************************
+	* members
+	**************************************************************************/
+	private ProductDao conn = new ProductDao();
+	
+	/**************************************************************************
+	* methods
+	**************************************************************************/
+	public ProductRep createProduct(ProductRequest request){
+		return conn.createProduct(request);
+	}
+	
+	public void deleteProductById(int productId)
+	{		
+		conn.deleteProductById(productId);
+	}
+	
+	public List<ProductRep> getProductsByTitle(String title){
+		return conn.getProductsByAttribute("title", title);
+	}
+	
+	public List<ProductRep> getProductsByGenre(String genre){
+		return conn.getProductsByAttribute("genre", genre);
+	}
+
+	public List<ProductRep> getProductsByAuthor(String author){
+		return conn.getProductsByAttribute("author", author);
+	}	
+	
+	public List<ProductRep> getProductsByPartnerId(String partnerID){
+		return conn.getProductsByAttribute("partnerID", partnerID);
+	}	
+	
+	public List<ProductRep> getAllProducts(){
+		return conn.getAllProducts();
+	}	
+	
+	public ProductRep updateProduct(ProductRequest request){
+		if (request.getProductId() > 0)
+		{
+			return conn.updateProduct(request);	
+		}
+		else
+		{
+			throw new Exception("ProductId is required");
+		}
+	}
+}

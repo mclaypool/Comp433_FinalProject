@@ -1,0 +1,40 @@
+/**
+ * 
+ */
+package com.partner;
+
+/**
+ * @author VMmax
+ *
+ */
+public class PartnerRequest extends Partner {
+
+	/**
+	 * @param email
+	 * @param password
+	 * @param businessName
+	 * @param contactFirstName
+	 * @param contactMiddleName
+	 * @param contactLastName
+	 * @param phone
+	 * @param street
+	 * @param city
+	 * @param state
+	 * @param zipCode
+	 */
+	public PartnerRequest(String email, String password, String businessName, String contactFirstName,
+			String contactMiddleName, String contactLastName, String phone, String street, String city, String state,
+			String zipCode) {
+		super(email, password, businessName, contactFirstName, contactMiddleName, contactLastName, phone, street, city,
+				state, zipCode);
+	}
+
+	/**
+	 * @param email
+	 * @param password
+	 */
+	public PartnerRequest(String email, String password) {
+		super(email, password);
+	}
+
+}

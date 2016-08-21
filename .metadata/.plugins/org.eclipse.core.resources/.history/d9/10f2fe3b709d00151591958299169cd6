@@ -1,0 +1,29 @@
+package com.order;
+
+public class OrderDao {
+
+	public OrderRep getOrder(OrderRequest request)
+	{
+		return null;
+	}
+	
+	public OrderRep createOrder(OrderRequest request)
+	{
+		return null;
+	}
+	
+	public void requestOrderCancellation(int id){}
+	
+	public void cancelOrder(int id){}
+	
+	public void deleteOrder(int id){}
+	
+	public void returnOrder(int id){}
+	
+	public OrderRep updateOrder(OrderRequest request)
+	{
+		return null;
+	}
+	
+	
+}

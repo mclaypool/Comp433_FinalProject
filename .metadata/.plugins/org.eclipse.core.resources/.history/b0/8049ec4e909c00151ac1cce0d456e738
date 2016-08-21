@@ -1,0 +1,100 @@
+/******************************************************************************
+* Class:	CustomerDao
+* Purpose:	
+*******************************************************************************
+* Style:		https://google.github.io/styleguide/javaguide.html
+* Column limit: 80
+******************************************************************************/
+package com.customer;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+public class CustomerDao{
+
+	/**************************************************************************
+	* global variables
+	**************************************************************************/
+	private static SessionFactory factory; 
+	
+	
+	/**************************************************************************
+	* constructor
+	**************************************************************************/	
+	public CustomerDao()
+	{
+	      try{
+	          factory = new Configuration().configure().buildSessionFactory();
+	       }catch (Throwable ex) { 
+	          System.err.println("Failed to create sessionFactory object." + ex);
+	          throw new ExceptionInInitializerError(ex); 
+	       }
+	}
+	
+	
+	/**************************************************************************
+	* methods
+	**************************************************************************/
+	public CustomerRep createCustomer(CustomerRequest request)
+	{
+		//declare variables
+		Integer id;
+		Transaction tx = null;
+
+		//save request
+		Session session = factory.openSession();
+		tx = session.beginTransaction();
+		id = (Integer) session.save(request);
+		tx.commit();
+		
+		//get representation
+		CustomerRep representation = session.get(CustomerRep.class, id);
+        session.close();
+        return representation;
+	}
+	
+	public CustomerRep getCustomer(CustomerRequest request)
+	{
+		//save request
+		Session session = factory.openSession();
+		
+		//get representation
+		CustomerRep representation = 
+				session.get(CustomerRep.class, request.getEmail());
+        session.close();
+        return representation;
+	}
+	
+	public CustomerRep updateCustomer(CustomerRequest request)
+	{
+		//declare variables
+		Transaction tx = null;
+
+		//save request
+		Session session = factory.openSession();
+		tx = session.beginTransaction();
+		session.update(request);
+		tx.commit();
+		
+		//get representation
+		CustomerRep representation = 
+				session.get(CustomerRep.class, request.getEmail());
+        session.close();
+        return representation;
+	}
+	
+	public CustomerRep deleteCustomer(CustomerRequest request)
+	{
+		//declare variables
+		Transaction tx = null;
+
+		//save request
+		Session session = factory.openSession();
+		tx = session.beginTransaction();
+		session.delete(request);
+		tx.commit();
+        session.close();
+        return representation;
+	}
+}

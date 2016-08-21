@@ -1,0 +1,77 @@
+package com.customer;
+import java.io.IOException;
+import java.io.File;
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.customer.Customer;
+
+public class CreateCustomerJSON {
+
+	public void objectToJson(){
+		System.out.println("Calling objectToJson...");
+		Customer customer = new Customer;
+		customer.setEmail("email@yahoo.com");
+		customer.setFirstName("First Name");
+		customer.setMiddleName("Middle Name");
+		customer.setLastName("Last Name");
+		customer.setPassword("Password");
+		customer.setPhone("Phone");
+		customer.setStreet("Street");
+		customer.setCity("City");
+		customer.setState("State");
+		customer.setZipCode("Zip");
+		
+		ObjectMapper objectMapper = new ObjectMapper();
+		try{
+			
+			objectMapper.writeValue(new File("c:\\customer.json"), customer);
+		
+			//display to console
+			Object json = objectMapper.readValue(
+					objectMapper.writeValueAsString(customer),Object.class);
+			
+			System.out.println(objectMapper.writerWithDefaultPrettyPrinter()
+					.writeValueAsString(json));
+		} catch (JsonGenerationException e) {
+			e.printStackTrace();
+		} catch (JsonMappingException e){
+			e.printStackTrace();
+		} catch (IOException e){
+			e.printStackTrace();
+		}
+	}
+	public void jsonToObject(){
+		System.out.println("Calling jsonToObject...");
+		ObjectMapper objectMapper = new ObjectMapper();
+		try{
+			
+			Customer customer = objectMapper.readValue(new File(
+					"c:\\customer.json"),Customer.class);
+			System.out.println("Email:- " + customer.getEmail());
+			System.out.println("First Name:- " + customer.getFirstName());
+			System.out.println("Middle Name:- " + customer.getMiddleName());
+			System.out.println("Last Name:- " + customer.getLastName());
+			System.out.println("Password:- " + customer.getPassword());
+			System.out.println("Street:- " + customer.getStreet());
+			System.out.println("City:- " + customer.getCity());
+			System.out.println("State:- " + customer.getState());
+			System.out.println("Zip Code:- " + customer.getZipCode());
+			
+		} catch (JsonGenerationException e) {
+			   e.printStackTrace();
+			  } catch (JsonMappingException e) {
+			   e.printStackTrace();
+			  } catch (IOException e) {
+			   e.printStackTrace();
+			  }
+	
+		}
+	public static void main(String[] args) {
+		CreateCustomerJSON jsonDemo = new CreateCustomerJSON();
+		  jsonDemo.objectToJson();
+		  jsonDemo.jsonToObject();
+	}
+
+}
+

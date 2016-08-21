@@ -1,0 +1,46 @@
+package com.order;
+
+public class OrderLogic {
+	
+	
+	/**************************************************************************
+	* members
+	**************************************************************************/
+	private OrderDao conn = new OrderDao();
+	
+	
+	/**************************************************************************
+	* methods
+	**************************************************************************/
+	public OrderRep getOrder(String customerId){
+		return conn.getOrder(customerId);
+	}
+	
+	public OrderRep createOrder(OrderRequest request){
+		return conn.createOrder(request);
+		//TODO: send partner email
+	}
+	
+	public void requestOrderCancellation(int id){
+		//TODO: send partner email
+	}
+	
+	public void cancelOrder(int id){
+		conn.cancelOrder(id);
+		//TODO: send partner email
+	}
+	
+	public void deleteOrder(int id){
+		conn.deleteOrder(id);
+		//TODO: send partner email
+	}
+	
+	public void returnOrder(int id){
+		conn.returnOrder(id);
+		//TODO: send partner email
+	}
+	
+	public OrderRep updateOrder(OrderRequest request){
+		return conn.updateOrder(request);
+	}
+}

@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping>
+    <class name="com.partner.PartnerRequest" table="partner">
+    
+			<meta attribute="class-description">
+				This class contains the customer detail. 
+			</meta>
+			
+			<id name="email" column="email" type="string"/>
+			<property name="password" column="password" type="string"/>
+			<property name="businessName" column="businessName" type="string"/>
+			<property name="contactFirstName" column="contactFirstName" type="string"/>
+			<property name="contactMiddleName" column="contactMiddleName" type="string"/>
+			<property name="contactLastName" column="contactLastName" type="string"/>
+			<property name="phone" column="phone" type="string"/>
+			<property name="street" column="street" type="string"/>
+			<property name="city" column="city" type="string"/>
+			<property name="state" column="state" type="string"/>
+			<property name="zipCode" column="zipCode" type="string"/>
+
+    </class>
+</hibernate-mapping>

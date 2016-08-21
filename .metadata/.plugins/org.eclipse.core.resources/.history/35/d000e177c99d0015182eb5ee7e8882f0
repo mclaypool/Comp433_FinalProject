@@ -1,0 +1,108 @@
+package com.order;
+
+import java.util.ArrayList;
+import java.util.List;
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.criterion.Restrictions;
+
+public class OrderDao {
+	/**************************************************************************
+	* global variables
+	**************************************************************************/
+	private static SessionFactory factory; 
+	
+	/**************************************************************************
+	* constructor
+	**************************************************************************/	
+	public OrderDao()
+	{
+	      try{
+	          factory = new Configuration().configure().buildSessionFactory();
+	       }catch (Throwable ex) { 
+	          System.err.println("Failed to create sessionFactory object." + ex);
+	          throw new ExceptionInInitializerError(ex); 
+	       }
+	}	
+	
+	/**************************************************************************
+	* methods
+	**************************************************************************/
+	public List<OrderRep> getShoppingCart(String attribute, String value){
+		return null;
+	}		
+	
+	public List<OrderRep> createShoppingCart(String attribute, String value){
+		return  null;
+	}
+	
+	public List<OrderRep> addItemToShoppingCart(OrderRequest request){
+		return  null;
+		//send partner email
+	}
+	
+	public List<OrderRep> placeOrder(int orderId){
+		return  null;
+		//send partner email
+	}
+	
+	public List<OrderRep> getOrdersByAttribute(String attribute, String value){
+		//declare variables
+		Session session = factory.openSession();
+		/*
+		//get representation
+        Criteria criteria = session.createCriteria(OrderRep.class);		
+        criteria.add(Restrictions.eq(Attribute, value));		
+        List<?> results = criteria.list();
+        session.close();
+
+        if (results != null)
+        {
+    		List<ProductRep> productList = new ArrayList<ProductRep>();
+    		
+    		for (int i = 0; i < results.size(); i++)
+    		{
+    			productList.add((ProductRep)results.get(i));
+    		}
+    		
+    		return productList;
+        }
+        else
+        {
+        	return null;
+        }*/
+		return null;
+	}
+	
+	public List<OrderRep> getAllOrders(String attribute, String value){
+		return  null;
+	}	
+	
+	public List<OrderRep> updateOrder(List<OrderRequest> request){
+		return  null;
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public void deleteOrder(int orderId){
+		
+	}
+	
+	public void cancelOrder(int orderId){
+		
+	}
+}

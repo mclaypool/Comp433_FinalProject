@@ -1,0 +1,6 @@
+package com.product;
+
+public abstract class Product {
+
+
+}

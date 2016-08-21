@@ -1,0 +1,39 @@
+package com.customer;
+import org.hibernate.HibernateException;
+
+public class CustomerLogic {
+	
+	/**************************************************************************
+	* members
+	**************************************************************************/
+	private CustomerDao conn = new CustomerDao();
+
+	
+	/**************************************************************************
+	* methods
+	* @throws HibernateException 
+	**************************************************************************/
+	/*
+	public CustomerRepresentation getCustomer(CustomerRequest request)
+	{
+		return conn.getCustomer(request);
+	}
+	
+	public CustomerRepresentation updateCustomer(CustomerRequest request)
+	{
+		CustomerDao conn = new CustomerDao();
+		return conn.updateCustomer(request);
+	}
+	
+	public CustomerRepresentation deleteCustomer(CustomerRequest request)
+	{
+		CustomerDao conn = new CustomerDao();
+		return conn.deleteCustomer(request);
+	}
+	*/
+	
+	public CustomerRepresentation createCustomer(CustomerRequest request)
+	{
+		return conn.createCustomer(request);
+	}
+}

@@ -1,0 +1,32 @@
+package com.product;
+
+import java.util.Date;
+import com.product.service.ProductAbstractRepresentation;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+@XmlRootElement(name = "Book")
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "")
+public class ProductRep extends Product implements ProductAbstractRepresentation{
+
+	public ProductRep() {
+	}
+
+	public ProductRep(int productId, String partnerID, String isbn13, String isbn10, String title, double cost,
+			String genre, String author, String description, Boolean isUsed, Boolean isHardcover, Date datePublished,
+			double length, double width, double height, double weight, int quantity) {
+		super(productId, partnerID, isbn13, isbn10, title, cost, genre, author, description, isUsed, isHardcover,
+				datePublished, length, width, height, weight, quantity);
+	}
+
+	public ProductRep(String partnerID, String isbn13, String isbn10, String title, double cost, String genre,
+			String author, String description, Boolean isUsed, Boolean isHardcover, Date datePublished, double length,
+			double width, double height, double weight, int quantity) {
+		super(partnerID, isbn13, isbn10, title, cost, genre, author, description, isUsed, isHardcover, datePublished,
+				length, width, height, weight, quantity);
+	}
+
+}

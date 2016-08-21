@@ -1,0 +1,167 @@
+package com.product;
+import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
+import org.junit.Test;
+
+public class ProductLogicTest {
+
+	@Test
+	public void testCreate() 
+	{
+		//declare variables
+		ProductLogic logic = new ProductLogic();
+		ProductRep rep = new ProductRep();
+		Date today = Calendar.getInstance().getTime();
+		
+		ProductRequest request = new ProductRequest("mclaypool@luc.edu",
+				"1234567890123", "1234567890", "Test Title", 12.25, 
+				"Test", "Test Anderson", "A test book", false, false, 
+				today, 10.25, 10.25, 10.25, 10.25, 5);
+		
+		//test functions
+		rep = logic.createProduct(request);
+		logic.deleteProductById(rep.getProductId());
+		assertEquals(request.getTitle(), rep.getTitle());
+	}
+	
+	@Test
+	public void testGetProductsByTitle() 
+	{
+		//declare variables
+		ProductLogic logic = new ProductLogic();
+		Date today = Calendar.getInstance().getTime();
+		
+		//create products
+		ProductRequest request = new ProductRequest("mclaypool@luc.edu",
+				"1234567890123", "1234567890", "Test Title", 12.25, 
+				"Test", "Test Anderson", "A test book", false, false, 
+				today, 10.25, 10.25, 10.25, 10.25, 5);
+		logic.createProduct(request);
+		
+		request = new ProductRequest("mclaypool2@luc.edu",
+				"1234567890123", "1234567890", "Test Title", 12.25, 
+				"Test", "Test Anderson", "A test book", false, false, 
+				today, 10.25, 10.25, 10.25, 10.25, 5);
+		logic.createProduct(request);
+		
+		//get products
+		List<ProductRep> productList = logic.getProductsByTitle("Test Title");
+		
+		//clean up and test function
+		for (int i = 0; i < productList.size(); i++)
+		{
+			//System.out.println(productList.get(i).getTitle());
+			//System.out.println(productList.get(i).getPartnerID());
+			logic.deleteProductById(productList.get(i).getProductId());
+			assertEquals(request.getTitle(), productList.get(i).getTitle());
+		}
+	}
+	
+	@Test
+	public void testGetProductsByGenre() 
+	{
+		//declare variables
+		ProductLogic logic = new ProductLogic();
+		Date today = Calendar.getInstance().getTime();
+		
+		//create products
+		ProductRequest request = new ProductRequest("mclaypool@luc.edu",
+				"1234567890123", "1234567890", "Test Title", 12.25, 
+				"Test", "Test Anderson", "A test book", false, false, 
+				today, 10.25, 10.25, 10.25, 10.25, 5);
+		logic.createProduct(request);
+		
+		request = new ProductRequest("mclaypool2@luc.edu",
+				"1234567890123", "1234567890", "Test Title", 12.25, 
+				"Test", "Test Anderson", "A test book", false, false, 
+				today, 10.25, 10.25, 10.25, 10.25, 5);
+		logic.createProduct(request);
+		
+		//get products
+		List<ProductRep> productList = logic.getProductsByGenre("Test");
+		
+		//clean up and test function
+		for (int i = 0; i < productList.size(); i++)
+		{
+			//System.out.println(productList.get(i).getTitle());
+			//System.out.println(productList.get(i).getPartnerID());
+			logic.deleteProductById(productList.get(i).getProductId());
+			assertEquals(request.getGenre(), productList.get(i).getGenre());
+		}
+	}
+	
+	@Test
+	public void testGetProductsByAuthor() 
+	{
+		//declare variables
+		ProductLogic logic = new ProductLogic();
+		Date today = Calendar.getInstance().getTime();
+		
+		//create products
+		ProductRequest request = new ProductRequest("mclaypool@luc.edu",
+				"1234567890123", "1234567890", "Test Title", 12.25, 
+				"Test", "Test Anderson", "A test book", false, false, 
+				today, 10.25, 10.25, 10.25, 10.25, 5);
+		logic.createProduct(request);
+		
+		request = new ProductRequest("mclaypool2@luc.edu",
+				"1234567890123", "1234567890", "Test Title", 12.25, 
+				"Test", "Test Anderson", "A test book", false, false, 
+				today, 10.25, 10.25, 10.25, 10.25, 5);
+		logic.createProduct(request);
+		
+		//get products
+		List<ProductRep> productList = logic.getProductsByAuthor("Test Anderson");
+		
+		//clean up and test function
+		for (int i = 0; i < productList.size(); i++)
+		{
+			//System.out.println(productList.get(i).getTitle());
+			//System.out.println(productList.get(i).getPartnerID());
+			logic.deleteProductById(productList.get(i).getProductId());
+			assertEquals(request.getAuthor(), productList.get(i).getAuthor());
+		}
+	}
+	
+	@Test
+	public void testGetAllProducts() 
+	{
+		//declare variables
+		ProductLogic logic = new ProductLogic();
+		Date today = Calendar.getInstance().getTime();
+		
+		//create products
+		ProductRequest request = new ProductRequest("mclaypool@luc.edu",
+				"1234567890123", "1234567890", "Test Title", 12.25, 
+				"Test", "Test Anderson", "A test book", false, false, 
+				today, 10.25, 10.25, 10.25, 10.25, 5);
+		logic.createProduct(request);
+		
+		request = new ProductRequest("mclaypool2@luc.edu",
+				"1234567890123", "1234567890", "Test Title", 12.25, 
+				"Test", "Test Anderson", "A test book", false, false, 
+				today, 10.25, 10.25, 10.25, 10.25, 5);
+		logic.createProduct(request);
+		
+		//get products
+		List<ProductRep> productList = logic.getAllProducts();
+		
+		//clean up and test function
+		for (int i = 0; i < productList.size(); i++)
+		{
+			//System.out.println(productList.get(i).getTitle());
+			//System.out.println(productList.get(i).getPartnerID());
+			logic.deleteProductById(productList.get(i).getProductId());
+			assertEquals(request.getPartnerID(), productList.get(i).getPartnerID());
+		}
+	}	
+	
+	
+	
+
+}

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping>
+    <class name="com.product.OrderRep" table="order">
+    
+			<meta attribute="class-description">
+				This class contains the customer detail. 
+			</meta>
+			
+			<id name="orderId" type="int" column=""orderId"">
+         <generator class="native"/>
+      </id>
+			
+			<property name="customerId" column="customerId" type="string"/>
+			<property name="productId" column="productId" type="int"/>
+			<property name="quantity" column="quantity" type="int"/>
+			<property name="phone" column="phone" type="string"/>
+			<property name="street" column="street" type="string"/>
+			<property name="city" column="city" type="string"/>
+			<property name="state" column="state" type="string"/>
+			<property name="zipCode" column="zipCode" type="string"/>
+			<property name="status" column="status" type="string"/>
+			<property name="orderDate" column="orderDate" type="date"/>
+			<property name="shippedDate" column="shippedDate" type="date"/>
+			<property name="deliveryDate" column="deliveryDate" type="date"/>
+			<property name="cancelledDate" column="cancelledDate" type="date"/>
+			<property name="cancellationRequested" column="cancellationRequested" type="boolean"/>
+
+    </class>
+</hibernate-mapping>

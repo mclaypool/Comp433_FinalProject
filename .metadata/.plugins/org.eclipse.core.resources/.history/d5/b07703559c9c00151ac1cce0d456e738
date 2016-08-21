@@ -1,0 +1,5 @@
+package com.partner;
+
+public abstract class Partner {
+
+}

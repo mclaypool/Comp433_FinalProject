@@ -1,0 +1,83 @@
+package com.partner;
+import static org.junit.Assert.*;
+import org.junit.Test;
+
+public class PartnerLogicTest {
+	
+	/**************************************************************************
+	* PartnerLogic
+	**************************************************************************/
+	@Test
+	public void testCreate() 
+	{
+		//declare variables
+		PartnerLogic logic = new PartnerLogic();
+		PartnerRep rep = new PartnerRep();
+		PartnerRequest request = new PartnerRequest("mclaypool@homtail.com",
+				"a", "testBiz", "Max", "Strike", "Claypool", "555-555-5555", 
+				"123 test st.", "Test City", "IL", "60626");
+		
+		//test functions
+		rep = logic.createPartner(request);
+		logic.deletePartner(request);
+		assertSame(request.getEmail(), rep.getEmail());
+	}
+	
+	@Test
+	public void testUpdate() 
+	{
+		//declare variables
+		PartnerLogic logic = new PartnerLogic();
+		PartnerRep rep = new PartnerRep();
+		PartnerRequest request = new PartnerRequest("mclaypool@homtail.com",
+				"a", "testBiz", "Max", "Strike", "Claypool", "555-555-5555", 
+				"123 test st.", "Test City", "IL", "60626");
+		
+		//test functions
+		logic.createPartner(request);
+		request = new PartnerRequest("mclaypool@homtail.com",
+				"a", "testBiz", "Max", "Strike", "Claypool", "316-555-5555", 
+				"123 test st.", "Test City", "IL", "60626");
+		
+		//test functions
+		rep = logic.updatePartner(request);
+		logic.deletePartner(request);
+		//System.out.println(rep.getPhone());
+		assertEquals(request.getPhone(), rep.getPhone());
+	}
+	
+	@Test
+	public void testGet() 
+	{
+		//declare variables
+		PartnerLogic logic = new PartnerLogic();
+		PartnerRep rep = new PartnerRep();
+		PartnerRequest request = new PartnerRequest("mclaypool@homtail.com",
+				"a", "testBiz", "Max", "Strike", "Claypool", "555-555-5555", 
+				"123 test st.", "Test City", "IL", "60626");
+		
+		//test functions
+		logic.createPartner(request);
+		request = new PartnerRequest("mclaypool@homtail.com", "a");
+		
+		//test functions
+		rep = logic.getPartner(request);
+		logic.deletePartner(request);
+		assertSame(request.getEmail(), rep.getEmail());
+	}
+	
+	@Test
+	public void testDelete() 
+	{
+		//declare variables
+		PartnerLogic logic = new PartnerLogic();
+		PartnerRequest request = new PartnerRequest("mclaypool@homtail.com",
+				"a", "testBiz", "Max", "Strike", "Claypool", "555-555-5555", 
+				"123 test st.", "Test City", "IL", "60626");
+		
+		//test functions
+		logic.createPartner(request);
+		logic.deletePartner(request);
+		assertNull(null);
+	}
+}

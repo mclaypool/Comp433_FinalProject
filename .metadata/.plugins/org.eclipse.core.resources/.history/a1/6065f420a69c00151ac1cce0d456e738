@@ -1,0 +1,29 @@
+package com.product;
+
+public class ProductLogic {
+
+	/**************************************************************************
+	* members
+	**************************************************************************/
+	private ProductDao conn = new ProductDao();
+	
+	/**************************************************************************
+	* methods
+	**************************************************************************/
+	public PriductRep getProduct(){
+		return conn.getProduct(this);
+	}
+	
+	public PriductRep updateProduct(){
+		return conn.updateProduct(this);
+	}
+	
+	public void deleteProduct(){
+		return conn.deleteProduct(this);
+	}
+	
+	public PriductRep createProduct(){
+		return conn.createProduct(this);
+	}
+
+}

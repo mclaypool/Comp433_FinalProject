@@ -1,0 +1,40 @@
+package com.customer;
+import com.order.OrderLogic;
+import com.product.ProductLogic;
+
+public class CustomerLogic{
+	
+	/**************************************************************************
+	* members
+	**************************************************************************/
+	private CustomerDao customerConn = new CustomerDao();
+	public ProductLogic productLogic = new ProductLogic();
+	public OrderLogic orderLogic = new OrderLogic();
+
+	
+	/**************************************************************************
+	* methods
+	**************************************************************************/
+	public CustomerRep getCustomer(CustomerRequest request)
+	{
+		return customerConn.getCustomer(request);
+		//TODO add link code
+	}
+	
+	public CustomerRep updateCustomer(CustomerRequest request)
+	{
+		return customerConn.updateCustomer(request);
+		//TODO add link code
+	}
+	
+	public void deleteCustomer(CustomerRequest request)
+	{
+		customerConn.deleteCustomer(request);
+	}
+
+	public CustomerRep createCustomer(CustomerRequest request)
+	{
+		return customerConn.createCustomer(request);
+		//TODO add link code
+	}
+}

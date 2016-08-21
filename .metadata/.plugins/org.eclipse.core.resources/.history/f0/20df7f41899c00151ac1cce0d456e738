@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping>
+    <class name="com.customer.Customer" table="customer">
+    
+		<meta attribute="class-description">
+			This class contains the employee detail. 
+		</meta>
+		
+		<id name="id" type="int" column="id">
+			<generator class="native"/>
+		</id>
+		
+		<property name="email" column="email" type="string"/>
+		<property name="firstName" column="firstName" type="string"/>
+		<property name="middleName" column="middleName" type="string"/>
+		<property name="lastName" column="lastName" type="string"/>
+		<property name="password" column="password" type="string"/>
+		<property name="phone" column="phone" type="string"/>
+		<property name="street" column="street" type="string"/>
+		<property name="city" column="city" type="string"/>
+		<property name="state" column="state" type="string"/>
+		<property name="zipCode" column="zipCode" type="string"/>
+		 
+ 
+ 		<!--
+        <property name="email">
+            <column name="email" length="100" not-null="false" />
+        </property>
+ 
+        <property name="firstName">
+            <column name="firstName" length="100" not-null="false" />
+        </property>
+ 
+        <property name="middleName">
+            <column name="middleName" length="100" not-null="false" />
+        </property>
+        
+        <property name="lastName">
+            <column name="lastName" length="100" not-null="false" />
+        </property>
+        
+        <property name="password">
+            <column name="password" length="100" not-null="false" />
+        </property>
+        
+        <property name="phone">
+            <column name="phone" length="100" not-null="false" />
+        </property>
+        
+        <property name="street">
+            <column name="street" length="100" not-null="false" />
+        </property>
+        
+        <property name="city">
+            <column name="city" length="100" not-null="false" />
+        </property>
+        
+        <property name="state">
+            <column name="state" length="100" not-null="false" />
+        </property>
+        
+        <property name="zipCode">
+            <column name="zipCode" length="100" not-null="false" />
+        </property>-->
+ 
+    </class>
+</hibernate-mapping>

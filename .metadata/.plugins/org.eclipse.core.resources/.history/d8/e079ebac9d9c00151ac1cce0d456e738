@@ -1,0 +1,27 @@
+package com.partner;
+
+public class PartnerLogic {
+	/**************************************************************************
+	* methods
+	 * @throws HibernateException 
+	**************************************************************************/
+	public void getPartner(){
+		PartnerDao conn = new PartnerDao();
+		conn.getPartner(this);
+	}
+	
+	public void updatePartner(){
+		PartnerDao conn = new PartnerDao();
+		conn.updatePartner(this);
+	}
+	
+	public void deletePartner(){
+		PartnerDao conn = new PartnerDao();
+		conn.deletePartner(this);
+	}
+	
+	public void createPartner(){
+		PartnerDao conn = new PartnerDao();
+		conn.createPartner(this);
+	}
+}

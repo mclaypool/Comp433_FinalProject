@@ -1,0 +1,49 @@
+package com.customer;
+
+import static org.junit.Assert.*;
+import org.junit.Test;
+
+public class CustomerLogicTest {
+
+	@Test
+	public void testCustomer() 
+	{
+		//declare variables
+		CustomerLogic logic = new CustomerLogic();
+		CustomerRep rep = new CustomerRep();
+		
+		//test create functions
+		CustomerRequest request = new CustomerRequest("mclaypool@homtail.com",
+				"Max", "Strike", "Claypool", "a", "555-555-5555", "123 test st.",
+				"Test City", "IL", "60626");
+		rep = logic.createCustomer(request);
+		assertSame(request.getEmail(), rep.getEmail());
+
+		//test update function
+		request = new CustomerRequest("mclaypool@homtail.com",
+				"Max", "Strike", "Claypool", "a", "316-616-5555", "123 test st.",
+				"Test City", "IL", "60626");
+		rep = logic.updateCustomer(request);
+		assertSame(request.getPhone(), rep.getPhone());
+	
+		//test get function
+		request = new CustomerRequest("mclaypool@homtail.com", "a");
+		rep = logic.getCustomer(request);
+		assertSame(request.getEmail(), rep.getEmail());
+		assertSame(request.getPassword(), rep.getPassword());
+	}
+	
+	@Test
+	public void testDelete() 
+	{
+		//declare variables
+		CustomerLogic logic = new CustomerLogic();
+		CustomerRep rep = new CustomerRep();
+		CustomerRequest request = new CustomerRequest("mclaypool@homtail.com", "a");
+		
+		//test functions
+		logic.deleteCustomer(request);
+		rep = logic.getCustomer(request);
+		assertNull(rep.getEmail());
+	}
+}

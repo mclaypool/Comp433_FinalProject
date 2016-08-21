@@ -1,0 +1,62 @@
+package com.order;
+
+import java.util.List;
+
+public class OrderLogic {
+	
+	
+	/**************************************************************************
+	* members
+	**************************************************************************/
+	private OrderDao conn = new OrderDao();
+	
+	
+	/**************************************************************************
+	* methods
+	**************************************************************************/
+	public List<OrderRep> getShoppingCart(String attribute, String value){
+		return conn.getShoppingCart(attribute, value);
+	}		
+	
+	public List<OrderRep> createShoppingCart(String attribute, String value){
+		return conn.createShoppingCart(attribute, value);
+	}
+	
+	public List<OrderRep> addItemToShoppingCart(OrderRequest request){
+		return conn.addItemToShoppingCart(request);
+		//send partner email
+	}
+	
+	public List<OrderRep> placeOrder(int orderId){
+		return conn.placeOrder(orderId);
+		//send partner email
+	}
+	
+	public void orderCancellationRequest(int orderId){
+		//send partner email
+	}
+	
+	public void returnOrderRequest(int orderId){
+		//send partner email
+	}
+	
+	public List<OrderRep> getOrdersByAttribute(String attribute, String value){
+		return conn.getOrdersByAttribute(attribute, value);
+	}
+	
+	public List<OrderRep> getAllOrders(String attribute, String value){
+		return conn.getAllOrders(attribute, value);
+	}	
+	
+	public List<OrderRep> updateOrder(List<OrderRequest> request){
+		return conn.updateOrder(request);
+	}
+	
+	public void deleteOrder(int orderId){
+		conn.deleteOrder(orderId);
+	}
+	
+	public void cancelOrder(int orderId){
+		conn.cancelOrder(orderId);
+	}
+}

@@ -1,0 +1,122 @@
+/******************************************************************************
+* Class:	ProductResource
+* Purpose:	
+*******************************************************************************
+* Style:		https://google.github.io/styleguide/javaguide.html
+* Column limit: 80
+******************************************************************************/
+package com.product;
+import java.util.Date;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+
+import com.product.Product;
+
+import javax.ws.rs.PathParam;
+
+@Path("/productResource/")
+public class ProductResource  implements ProductService{
+
+	/**************************************************************************
+	* getProduct
+	**************************************************************************/
+	@GET
+	@Produces({"application/xml","application/json"})
+	@Path("/product/get/{productId}")
+	public Product getProduct(
+		@PathParam("productId") int productId) 
+	{
+		System.out.println(
+				"GET METHOD Request from Client with Product: " + productId);
+		ProductActivity productActivity = new ProductActivity();
+		return productActivity.getProduct(productId);
+	}
+
+	/**************************************************************************
+	* updateProduct
+	**************************************************************************/
+	@POST
+	@Produces({"application/xml","application/json"})
+	@Path("/product/update/{productId}/{isbn13}/{isbn10}/{title}/{cost}/{genre}/"
+			+ "{author}/{description}/{isUsed}/{isHardcover}/{datePublished}/"
+			+ "{length}/{width}/{height}/{weight}/{partnerID}/{quantity}")
+	public String updateProduct(
+		@PathParam("productId") int productId, 
+		@PathParam("isbn13") String isbn13, 
+		@PathParam("isbn10") String isbn10, 
+		@PathParam("title") String title, 
+		@PathParam("cost") float cost, 
+		@PathParam("genre") String genre,
+		@PathParam("author") String author, 
+		@PathParam("description") String description, 
+		@PathParam("isUsed") Boolean isUsed, 
+		@PathParam("isHardcover") Boolean isHardcover, 
+		@PathParam("datePublished") Date datePublished, 
+		@PathParam("length") int length,
+		@PathParam("width") int width, 
+		@PathParam("height") int height, 
+		@PathParam("weight") int weight, 
+		@PathParam("partnerID") String partnerID,
+		@PathParam("quantity") int quantity)
+	{
+		System.out.println(
+				"POST METHOD Request from Client with Product: " + productId);
+		ProductActivity productActivity = new ProductActivity();
+		return productActivity.updateProduct(productId, isbn13, isbn10, title, 
+				cost, genre, author, description, isUsed, isHardcover, 
+				datePublished, length, width, height, weight, partnerID, quantity);
+	}
+	
+	/**************************************************************************
+	* deleteProduct
+	**************************************************************************/
+	@DELETE
+	@Produces({"application/xml","application/json"})
+	@Path("/product/delete/{productId}")
+	public String deleteProduct(
+		@PathParam("productId") int productId)
+	{
+		System.out.println(
+				"DELETE METHOD Request from Client with Product: " + productId);
+		ProductActivity productActivity = new ProductActivity();
+		return productActivity.deleteProduct(productId);
+	}
+
+	/**************************************************************************
+	* createProduct
+	**************************************************************************/
+	@POST
+	@Produces({"application/xml","application/json"})
+	@Path("/product/create/{productId}/{isbn13}/{isbn10}/{title}/{cost}/{genre}/"
+			+ "{author}/{description}/{isUsed}/{isHardcover}/{datePublished}/"
+			+ "{length}/{width}/{height}/{weight}/{partnerID}/{quantity}")	
+	public String createProduct(
+		@PathParam("isbn13") String isbn13, 
+		@PathParam("isbn10") String isbn10, 
+		@PathParam("title") String title, 
+		@PathParam("cost") float cost, 
+		@PathParam("genre") String genre,
+		@PathParam("author") String author, 
+		@PathParam("description") String description, 
+		@PathParam("isUsed") Boolean isUsed, 
+		@PathParam("isHardcover") Boolean isHardcover, 
+		@PathParam("datePublished") Date datePublished, 
+		@PathParam("length") int length,
+		@PathParam("width") int width, 
+		@PathParam("height") int height, 
+		@PathParam("weight") int weight, 
+		@PathParam("partnerID") String partnerID,
+		@PathParam("quantity") int quantity)
+	{
+		System.out.println(
+				"POST METHOD Request from Client with Product: " + title);
+		ProductActivity productActivity = new ProductActivity();
+		return productActivity.createProduct(isbn13, isbn10, title, cost, 
+				genre, author, description, isUsed, isHardcover, datePublished, 
+				length, width, height, weight, partnerID, quantity);
+	}
+	
+}

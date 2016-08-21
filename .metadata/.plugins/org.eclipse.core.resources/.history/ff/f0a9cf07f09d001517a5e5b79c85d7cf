@@ -1,0 +1,60 @@
+package com.customer;
+import com.order.OrderLogic;
+import com.product.ProductLogic;
+import com.product.ProductRep;
+
+public class CustomerLogic{
+	
+	/**************************************************************************
+	* members
+	**************************************************************************/
+	private CustomerDao customerConn = new CustomerDao();
+	public ProductLogic productLogic = new ProductLogic();
+	public OrderLogic orderLogic = new OrderLogic();
+
+	
+	/**************************************************************************
+	* methods
+	**************************************************************************/
+	public CustomerRep getCustomer(CustomerRequest request)
+	{
+		return customerConn.getCustomer(request);
+		//TODO add link code
+	}
+	
+	public CustomerRep updateCustomer(CustomerRequest request)
+	{
+		return customerConn.updateCustomer(request);
+		//TODO add link code
+	}
+	
+	public void deleteCustomer(CustomerRequest request)
+	{
+		customerConn.deleteCustomer(request);
+	}
+
+	public CustomerRep createCustomer(String email, String firstName, String middleName, 
+			String lastName, String password, String phone, String street, 
+			String city, String state, String zipCode)
+	{
+		CustomerRequest request = new CustomerRequest();
+		
+		request.setEmail(email);
+		request.setFirstName(firstName);
+		request.setMiddleName(middleName);
+		request.setLastName(lastName);
+		request.setPassword(password);
+		request.setPhone(phone);
+		request.setState(state);
+		request.setStreet(street);
+		request.setCity(city);
+		request.setZipCode(zipCode);		
+		
+		return customerConn.createCustomer(request);
+		//TODO add link code
+	}
+	
+	private void setLinks(CustomerRep rep) {
+		//TODO
+	}
+}

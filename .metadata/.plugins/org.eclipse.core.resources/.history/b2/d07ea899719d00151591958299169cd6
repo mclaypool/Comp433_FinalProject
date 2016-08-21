@@ -1,0 +1,68 @@
+package com.order;
+
+import java.util.List;
+
+public class OrderLogic {
+	
+	
+	/**************************************************************************
+	* members
+	**************************************************************************/
+	private OrderDao conn = new OrderDao();
+	
+	
+	/**************************************************************************
+	* methods
+	**************************************************************************/
+	public List<OrderRep> getOrdersByAttribute(String attribute, String value){
+		return conn.getOrderByAttribute(attribute, value);
+	}
+	
+	public List<OrderRep> getAllOrders(String attribute, String value){
+		return conn.getOrderByAttribute(attribute, value);
+	}	
+	
+	public List<OrderRep> getAllOrders(String attribute, String value){
+		return conn.getOrderByAttribute(attribute, value);
+	}		
+	
+	public List<OrderRep> createNewOrder(List<OrderRequest> request){
+		return conn.createOrder(request);
+		//TODO: send partner email
+	}
+	
+
+	
+	public List<OrderRep> addItemToOrder(OrderRequest request){
+		return conn.createOrder(request);
+		//TODO: send partner email
+	}
+	
+	public List<OrderRep> updateOrder(List<OrderRequest> request){
+		return conn.updateOrder(request);
+	}
+	
+	public List<OrderRep> placeOrder(int id){
+		return conn.placeOrder(id);
+		//TODO: send partner email
+	}
+	
+	public void requestOrderCancellation(int id){
+		//TODO: send partner email
+	}
+	
+	public void cancelOrder(int id){
+		conn.cancelOrder(id);
+		//TODO: send partner email
+	}
+	
+	public void deleteOrder(int id){
+		conn.deleteOrder(id);
+		//TODO: send partner email
+	}
+	
+	public void returnOrder(int id){
+		conn.returnOrder(id);
+		//TODO: send partner email
+	}
+}

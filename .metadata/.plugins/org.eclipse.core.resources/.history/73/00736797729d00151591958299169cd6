@@ -1,0 +1,80 @@
+package com.order;
+
+import java.util.List;
+
+public class OrderLogic {
+	
+	
+	/**************************************************************************
+	* members
+	**************************************************************************/
+	private OrderDao conn = new OrderDao();
+	
+	
+	/**************************************************************************
+	* methods
+	**************************************************************************/
+	public List<OrderRep> getOrdersByAttribute(String attribute, String value){
+		return null;
+		//return conn.getOrderByAttribute(attribute, value);
+	}
+	
+	public List<OrderRep> getAllOrders(String attribute, String value){
+		return null;
+		//return conn.getOrderByAttribute(attribute, value);
+	}	
+	
+	/*
+	 * for cutomers
+	 */
+	public List<OrderRep> getShoppingCart(String attribute, String value){
+		return null;
+		//return conn.getShoppingCart(attribute, value);
+	}		
+	
+	public List<OrderRep> createShoppingCart(String attribute, String value){
+		return null;
+		//return conn.createOrder(attribute, value);
+		//TODO: send partner email
+	}
+	
+	public List<OrderRep> addItemToShoppingCart(OrderRequest request){
+		return null;
+		//return conn.addItemToOrder(request);
+		//TODO: send partner email
+	}
+	
+	public List<OrderRep> placeOrder(int id){
+		return null;
+		//return conn.placeOrder(id);
+		//TODO: send partner email
+	}
+	
+	public void orderCancellationRequest(int id){
+		//TODO: send partner email
+	}
+	
+	public void returnOrderRequest(int id){
+		//conn.returnOrder(id);
+		//TODO: send partner email
+	}
+	
+	
+	/*
+	 * for partners
+	 */
+	public List<OrderRep> updateOrder(List<OrderRequest> request){
+		return null;
+		//return conn.updateOrder(request);
+	}
+	
+	public void deleteOrder(int id){
+		//conn.deleteOrder(id);
+		//TODO: send partner email
+	}
+	
+	public void cancelOrder(int id){
+		//conn.cancelOrder(id);
+		//TODO: send partner email
+	}
+}

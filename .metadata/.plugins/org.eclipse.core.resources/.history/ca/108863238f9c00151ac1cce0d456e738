@@ -1,0 +1,19 @@
+import com.customer.*;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		//declare variables
+		CustomerLogic logic = new CustomerLogic();
+		CustomerRep rep = new CustomerRep();
+		CustomerRequest request = new CustomerRequest("mclaypool@homtail.com",
+				"Max", "Strike", "Claypool", "a", "555-555-5555", "123 test st.",
+				"Test City", "IL", "60626");
+		
+		//test functions
+		rep = logic.createCustomer(request);
+		System.out.println(rep.getId());
+
+	}
+}

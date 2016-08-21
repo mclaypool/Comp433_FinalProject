@@ -1,0 +1,69 @@
+/******************************************************************************
+* Class:	PartnerDao
+* Purpose:	
+*******************************************************************************
+* Style:		https://google.github.io/styleguide/javaguide.html
+* Column limit: 80
+******************************************************************************/
+package com.partner;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+public class PartnerDao {
+
+	/**************************************************************************
+	* global variables
+	**************************************************************************/
+	private static SessionFactory factory; 
+	
+	
+	/**************************************************************************
+	* constructor
+	**************************************************************************/	
+	public PartnerDao()
+	{
+	      try{
+	          factory = new Configuration().configure().buildSessionFactory();
+	       }catch (Throwable ex) { 
+	          System.err.println("Failed to create sessionFactory object." + ex);
+	          throw new ExceptionInInitializerError(ex); 
+	       }
+	}
+	
+	
+	/**************************************************************************
+	* methods
+	**************************************************************************/
+	public void getPartner(Partner partner){
+		Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        partner = session.get(Partner.class, partner.getEmail());
+        session.close();
+	}
+	
+	public void updatePartner(Partner partner){
+		Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.update(partner);
+        session.getTransaction().commit();
+        session.close();
+	}
+	
+	public void deletePartner(Partner partner){
+		Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.delete(partner);
+        session.getTransaction().commit();
+        session.close();
+	}
+	
+	public void createPartner(Partner partner){
+		Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.save(partner);
+        session.getTransaction().commit();
+        session.close();
+	}
+}

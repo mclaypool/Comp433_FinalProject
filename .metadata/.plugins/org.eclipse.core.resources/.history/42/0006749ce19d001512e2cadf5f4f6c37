@@ -1,0 +1,146 @@
+/******************************************************************************
+* Class:	OrderResource
+* Purpose:	
+*******************************************************************************
+* Style:		https://google.github.io/styleguide/javaguide.html
+* Column limit: 80
+******************************************************************************/
+package com.order;
+import java.util.Date;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.PathParam;
+import com.order.OrderActivity;
+
+
+@Path("/orderResource/")
+public class OrderResource implements OrderService{
+
+	/**************************************************************************
+	* getCustomer
+	**************************************************************************/
+	@GET
+	@Produces({"application/xml","application/json"})
+	@Path("/order/get/{orderId}")
+	public Order getOrder(
+		@PathParam("orderId") int orderId) 
+	{
+		System.out.println(
+				"GET METHOD Request from Client with Order: " + orderId);
+		OrderActivity orderActivity = new OrderActivity();
+		return orderActivity.getOrder(orderId);
+	}
+
+	/**************************************************************************
+	* updateOrder
+	**************************************************************************/
+	@POST
+	@Produces({"application/xml","application/json"})
+	@Path("/order/update/{orderId}/{email}/{productId}/{quantity}/{total}/"
+			+ "{phone}/{street}/{city}/{state}/{zipCode}/{status}/"
+			+ "{orderDate}/{shippedDate}/{deliveryDate}/{cancelledDate}")
+	public String updateOrder(
+		@PathParam("orderId") int orderId, 
+		@PathParam("email") String email, 
+		@PathParam("productId") int productId, 
+		@PathParam("quantity") int quantity, 
+		@PathParam("total") float total, 
+		@PathParam("phone") String phone,
+		@PathParam("street") String street, 
+		@PathParam("city") String city, 
+		@PathParam("state") String state, 
+		@PathParam("zipCode") String zipCode, 
+		@PathParam("status") String status, 
+		@PathParam("orderDate") Date orderDate, 
+		@PathParam("shippedDate") Date shippedDate,
+		@PathParam("deliveryDate") Date deliveryDate, 
+		@PathParam("cancelledDate") Date cancelledDate) 
+	{
+		System.out.println(
+				"POST METHOD Request from Client with Order: " + orderId);
+		OrderActivity orderActivity = new OrderActivity();
+		return orderActivity.updateOrder(orderId, email, productId, 
+				quantity, total, phone, street, city, state, zipCode, 
+				status, orderDate, shippedDate, deliveryDate, cancelledDate);
+	}
+
+	/**************************************************************************
+	* deleteOrder
+	**************************************************************************/
+	@DELETE
+	@Produces({"application/xml","application/json"})
+	@Path("/order/delete/{orderId}")
+	public String deleteOrder(
+		@PathParam("orderId") int orderId) 
+	{
+		System.out.println(
+				"DELETE METHOD Request from Client with Order: " + orderId);
+		OrderActivity orderActivity = new OrderActivity();
+		return orderActivity.deleteOrder(orderId);
+	}
+
+	/**************************************************************************
+	* createOrder
+	**************************************************************************/
+	@POST
+	@Produces({"application/xml","application/json"})
+	@Path("/order/update/{email}/{productId}/{quantity}/{total}/"
+			+ "{phone}/{street}/{city}/{state}/{zipCode}/{status}/"
+			+ "{orderDate}/{shippedDate}/{deliveryDate}/{cancelledDate}")	
+	public String createOrder(
+			@PathParam("email") String email, 
+			@PathParam("productId") int productId, 
+			@PathParam("quantity") int quantity, 
+			@PathParam("total") float total, 
+			@PathParam("phone") String phone,
+			@PathParam("street") String street, 
+			@PathParam("city") String city, 
+			@PathParam("state") String state, 
+			@PathParam("zipCode") String zipCode, 
+			@PathParam("status") String status, 
+			@PathParam("orderDate") Date orderDate, 
+			@PathParam("shippedDate") Date shippedDate,
+			@PathParam("deliveryDate") Date deliveryDate, 
+			@PathParam("cancelledDate") Date cancelledDate) 
+	{
+		System.out.println(
+				"POST METHOD Request from Client with Customer: " + email);
+		OrderActivity orderActivity = new OrderActivity();
+		return orderActivity.createOrder(email, productId, quantity, total, 
+				phone, street, city, state, zipCode, status, orderDate, 
+				shippedDate, deliveryDate, cancelledDate);
+	}
+
+	/**************************************************************************
+	* requestOrderCancellation
+	**************************************************************************/
+	@POST
+	@Produces({"application/xml","application/json"})
+	@Path("/order/requestCancellation/{orderId}")
+	public String requestOrderCancellation(
+		@PathParam("orderId") int orderId)  
+	{
+		System.out.println(
+				"POST METHOD Request from Client with Order: " + orderId);
+		OrderActivity orderActivity = new OrderActivity();
+		return orderActivity.requestOrderCancellation(orderId);
+	}
+
+	/**************************************************************************
+	* returnOrder
+	**************************************************************************/
+	@POST
+	@Produces({"application/xml","application/json"})
+	@Path("/order/return/{orderId}")
+	public String returnOrder(
+		@PathParam("orderId") int orderId) 
+	{
+		System.out.println(
+				"POST METHOD Request from Client with Order: " + orderId);
+		OrderActivity orderActivity = new OrderActivity();
+		return orderActivity.returnOrder(orderId);
+	}
+}

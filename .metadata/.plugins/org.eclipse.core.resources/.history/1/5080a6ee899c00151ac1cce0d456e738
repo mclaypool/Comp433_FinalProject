@@ -1,0 +1,88 @@
+/******************************************************************************
+* Class:	CustomerDao
+* Purpose:	
+*******************************************************************************
+* Style:		https://google.github.io/styleguide/javaguide.html
+* Column limit: 80
+******************************************************************************/
+package com.customer;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+import misc.SessionFactoryUtil;
+
+public class CustomerDao{
+
+	/**************************************************************************
+	* global variables
+	**************************************************************************/
+	private static SessionFactory factory; 
+	
+	
+	/**************************************************************************
+	* constructor
+	**************************************************************************/	
+	public CustomerDao()
+	{
+	      try{
+	          factory = new Configuration().configure().buildSessionFactory();
+	          Session session = factory.openSession();
+	       }catch (Throwable ex) { 
+	          System.err.println("Failed to create sessionFactory object." + ex);
+	          throw new ExceptionInInitializerError(ex); 
+	       }
+	}
+	
+	
+	/**************************************************************************
+	* methods
+	**************************************************************************/
+	public CustomerRepresentation createCustomer(CustomerRequest request)
+	{
+		//declare variables
+		CustomerRepresentation representation = new CustomerRepresentation();
+		int id;
+		
+		//save request
+		Session session = factory.openSession();
+		id = (int) session.save(request);
+		
+		//get representation
+        representation = (CustomerRepresentation)session.get(Customer.class, id);
+        return representation;
+	}
+	
+	/*
+	public CustomerRepresentation getCustomer(CustomerRequest request)
+	{
+		//declare variables
+		CustomerRepresentation representation = new CustomerRepresentation();
+        
+        representation = 
+        		(CustomerRepresentation)session.get(Customer.class, request.getEmail());
+        session.close();
+
+        return representation;
+	}
+	
+	public CustomerRepresentation updateCustomer(CustomerRequest request)
+	{
+		Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.update(request);
+        session.getTransaction().commit();
+        session.close();
+        return null;
+	}
+	
+	public CustomerRepresentation deleteCustomer(CustomerRequest request)
+	{
+		Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.delete(request);
+        session.getTransaction().commit();
+        session.close();
+        return null;
+	}*/
+}

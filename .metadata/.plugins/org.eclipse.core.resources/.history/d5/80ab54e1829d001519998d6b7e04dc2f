@@ -1,0 +1,22 @@
+package com.customer;
+
+import java.util.Arrays;
+import java.util.List;
+
+import javax.xml.bind.annotation.XmlElement;
+
+import com.customer.CustomerLink;
+
+public abstract interface CustomerAbstractRepresentation {
+
+	@XmlElement(name="link", namespace="")
+	public List<CustomerLink> links;
+	
+	public default List<CustomerLink> getLinks() {
+		return links;
+	}
+	
+	public default void setLinks(CustomerLink...links) {
+		links = Arrays.asList(links);
+	}
+}

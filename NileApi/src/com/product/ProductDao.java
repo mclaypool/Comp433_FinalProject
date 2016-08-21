@@ -1,0 +1,140 @@
+package com.product;
+import java.util.ArrayList;
+import java.util.List;
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.criterion.Restrictions;
+
+
+public class ProductDao {
+	/**************************************************************************
+	* global variables
+	**************************************************************************/
+	private static SessionFactory factory; 
+	
+	
+	/**************************************************************************
+	* constructor
+	**************************************************************************/	
+	public ProductDao()
+	{
+	      try{
+	          factory = new Configuration().configure().buildSessionFactory();
+	       }catch (Throwable ex) { 
+	          System.err.println("Failed to create sessionFactory object." + ex);
+	          throw new ExceptionInInitializerError(ex); 
+	       }
+	}
+	
+	/**************************************************************************
+	* methods
+	**************************************************************************/
+	public ProductRep createProduct(ProductRequest request)
+	{
+		//declare variables
+		Integer id;
+		Transaction tx = null;
+
+		//save request
+		Session session = factory.openSession();
+		tx = session.beginTransaction();
+		id = (Integer) session.save(request);
+		tx.commit();
+		
+		//get representation
+		ProductRep representation = session.get(ProductRep.class, id);
+        session.close();
+        return representation;
+	}
+	
+	public void deleteProductById(int productId)
+	{
+		//declare variables
+		Transaction tx = null;
+		ProductRequest request = new ProductRequest();
+		request.setProductId(productId);
+
+		//save request
+		Session session = factory.openSession();
+		tx = session.beginTransaction();
+		session.delete(request);
+		tx.commit();
+        session.close();
+	}
+	
+	public List<ProductRep> getProductsByAttribute(String Attribute, String value)
+	{
+		//declare variables
+		Session session = factory.openSession();
+		
+		//get representation
+        Criteria criteria = session.createCriteria(ProductRep.class);		
+        criteria.add(Restrictions.eq(Attribute, value));		
+        List<?> results = criteria.list();
+        session.close();
+
+        if (results != null)
+        {
+    		List<ProductRep> productList = new ArrayList<ProductRep>();
+    		
+    		for (int i = 0; i < results.size(); i++)
+    		{
+    			productList.add((ProductRep)results.get(i));
+    		}
+    		
+    		return productList;
+        }
+        else
+        {
+        	return null;
+        }
+	}
+	
+	public List<ProductRep> getAllProducts()
+	{
+		//declare variables
+		Session session = factory.openSession();
+		
+		//get representation
+        Criteria criteria = session.createCriteria(ProductRep.class);				
+        List<?> results = criteria.list();
+        session.close();
+
+        if (results != null)
+        {
+    		List<ProductRep> productList = new ArrayList<ProductRep>();
+    		
+    		for (int i = 0; i < results.size(); i++)
+    		{
+    			productList.add((ProductRep)results.get(i));
+    		}
+    		
+    		return productList;
+        }
+        else
+        {
+        	return null;
+        }
+	}
+	
+	public ProductRep updateProduct(ProductRequest request)
+	{
+		//declare variables
+		Transaction tx = null;
+
+		//save request
+		Session session = factory.openSession();
+		tx = session.beginTransaction();
+		session.update(request);
+		tx.commit();
+		
+		//get representation
+		ProductRep representation = 
+				session.get(ProductRep.class, request.getProductId());
+        session.close();
+        return representation;
+	}
+}

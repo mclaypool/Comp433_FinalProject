@@ -1,0 +1,27 @@
+package com.product;
+
+import java.util.Date;
+
+public class ProductRequest extends Product {
+
+	public ProductRequest() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public ProductRequest(int productId, String isbn13, String isbn10, String title, float cost, String genre,
+			String author, String description, Boolean isUsed, Boolean isHardcover, Date datePublished, int length,
+			int width, int height, int weight, String partnerID, int quantity) {
+		super(productId, isbn13, isbn10, title, cost, genre, author, description, isUsed, isHardcover, datePublished,
+				length, width, height, weight, partnerID, quantity);
+		// TODO Auto-generated constructor stub
+	}
+
+	public ProductRequest(String isbn13, String isbn10, String title, float cost, String genre, String author,
+			String description, Boolean isUsed, Boolean isHardcover, Date datePublished, int length, int width,
+			int height, int weight, String partnerID, int quantity) {
+		super(isbn13, isbn10, title, cost, genre, author, description, isUsed, isHardcover, datePublished, length,
+				width, height, weight, partnerID, quantity);
+		// TODO Auto-generated constructor stub
+	}
+
+}

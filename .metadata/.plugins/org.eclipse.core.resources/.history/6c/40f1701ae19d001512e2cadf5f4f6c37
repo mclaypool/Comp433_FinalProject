@@ -1,0 +1,111 @@
+/******************************************************************************
+* Class:	PartnerResource
+* Purpose:	
+*******************************************************************************
+* Style:		https://google.github.io/styleguide/javaguide.html
+* Column limit: 80
+******************************************************************************/
+package com.partner;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+
+import com.partner.Partner;
+
+import javax.ws.rs.PathParam;
+
+@Path("/partnerResource/")
+public class PartnerResource  implements PartnerService{
+
+	/**************************************************************************
+	* getPartner
+	**************************************************************************/
+	@GET
+	@Produces({"application/xml","application/json"})
+	@Path("/partner/get/{email}/{password}")
+	public Partner getPartner(
+		@PathParam("email") String email,
+		@PathParam("password") String password) 
+	{
+		System.out.println(
+				"GET METHOD Request from Client with Partner: " + email);
+		PartnerActivity partnerActivity = new PartnerActivity();
+		return partnerActivity.getPartner(email, password);
+	}
+
+	/**************************************************************************
+	* updatePartner
+	**************************************************************************/
+	@POST
+	@Produces({"application/xml","application/json"})
+	@Path("/partner/update/{email}/{businessName}/{contactFirstName}/"
+			+ "{contactMiddleName}/{contactLastName}/{password}/{phone}/"
+			+ "{street}/{city}/{state}/{zipCode}")
+	public String updatePartner(
+		@PathParam("email") String email, 
+		@PathParam("password") String password, 
+		@PathParam("businessName") String businessName, 
+		@PathParam("contactFirstName") String contactFirstName,
+		@PathParam("contactMiddleName") String contactMiddleName, 
+		@PathParam("contactLastName") String contactLastName, 
+		@PathParam("phone") String phone, 
+		@PathParam("street") String street, 
+		@PathParam("city") String city, 
+		@PathParam("state") String state,
+		@PathParam("zipCode") String zipCode) 
+	{
+		System.out.println(
+				"POST METHOD Request from Client with Partner: " + email);
+		PartnerActivity partnerActivity = new PartnerActivity();
+		return partnerActivity.updatePartner(email, password, businessName, 
+				contactFirstName, contactMiddleName, contactLastName, phone, 
+				street, city, state, zipCode);
+	}
+
+	/**************************************************************************
+	* deletePartner
+	**************************************************************************/
+	@DELETE
+	@Produces({"application/xml","application/json"})
+	@Path("/partner/delete/{email}/{password}")
+	public String deletePartner(
+		@PathParam("email") String email,
+		@PathParam("password") String password) 
+	{
+		System.out.println(
+				"DELETE METHOD Request from Client with Partner: " + email);
+		PartnerActivity partnerActivity = new PartnerActivity();
+		return partnerActivity.deletePartner(email, password);
+	}
+
+	/**************************************************************************
+	* createPartner
+	**************************************************************************/
+	@POST
+	@Produces({"application/xml","application/json"})
+	@Path("/partner/create/{email}/{businessName}/{contactFirstName}/"
+			+ "{contactMiddleName}/{contactLastName}/{password}/{phone}/"
+			+ "{street}/{city}/{state}/{zipCode}")
+	public String createPartner(
+		@PathParam("email") String email, 
+		@PathParam("password") String password, 
+		@PathParam("businessName") String businessName, 
+		@PathParam("contactFirstName") String contactFirstName,
+		@PathParam("contactMiddleName") String contactMiddleName, 
+		@PathParam("contactLastName") String contactLastName, 
+		@PathParam("phone") String phone, 
+		@PathParam("street") String street, 
+		@PathParam("city") String city, 
+		@PathParam("state") String state,
+		@PathParam("zipCode") String zipCode) 
+	{
+		System.out.println(
+				"POST METHOD Request from Client with Partner: " + email);
+		PartnerActivity partnerActivity = new PartnerActivity();
+		return partnerActivity.createPartner(email, password, businessName, 
+				contactFirstName, contactMiddleName, contactLastName, phone, 
+				street, city, state, zipCode);
+	}
+}

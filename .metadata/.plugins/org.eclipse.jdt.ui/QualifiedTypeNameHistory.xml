@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.io.Console"/>
+<fullyQualifiedTypeName name="misc.SessionFactoryUtil"/>
+<fullyQualifiedTypeName name="java.util.Calendar"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="com.product.service.ProductAbstractRepresentation"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.partner.service.PartnerAbstractRepresentation"/>
+<fullyQualifiedTypeName name="com.product.ProductLogic"/>
+<fullyQualifiedTypeName name="com.product.ProductRequest"/>
+<fullyQualifiedTypeName name="com.product.ProductRep"/>
+</qualifiedTypeNameHistroy>

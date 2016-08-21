@@ -1,0 +1,44 @@
+package com.customer;
+import com.product.ProductDao;
+import com.product.ProductLogic;
+import com.product.ProductRep;
+import com.product.ProductRequest;
+
+public class CustomerLogic implements ProductLogic{
+	
+	/**************************************************************************
+	* members
+	**************************************************************************/
+	private CustomerDao customerConn = new CustomerDao();
+	private ProductDao productConn = new ProductDao();
+
+	
+	/**************************************************************************
+	* methods
+	**************************************************************************/
+	public CustomerRep getCustomer(CustomerRequest request)
+	{
+		return customerConn.getCustomer(request);
+	}
+	
+	public CustomerRep updateCustomer(CustomerRequest request)
+	{
+		return customerConn.updateCustomer(request);
+	}
+	
+	public void deleteCustomer(CustomerRequest request)
+	{
+		customerConn.deleteCustomer(request);
+	}
+
+	public CustomerRep createCustomer(CustomerRequest request)
+	{
+		return customerConn.createCustomer(request);
+	}
+	
+	@SuppressWarnings("unused")
+	private void deleteProductById(int productId)
+	{		
+		productConn.deleteProductById(productId);
+	}
+}

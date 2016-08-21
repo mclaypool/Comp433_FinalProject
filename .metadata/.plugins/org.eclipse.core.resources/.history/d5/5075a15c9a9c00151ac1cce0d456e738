@@ -1,0 +1,82 @@
+package com.customer;
+
+import static org.junit.Assert.*;
+import org.junit.Test;
+
+public class CustomerLogicTest {
+
+	
+	@Test
+	public void testCreate() 
+	{
+		//declare variables
+		CustomerLogic logic = new CustomerLogic();
+		CustomerRep rep = new CustomerRep();
+		CustomerRequest request = new CustomerRequest("mclaypool@homtail.com",
+				"Max", "Strike", "Claypool", "a", "555-555-5555", "123 test st.",
+				"Test City", "IL", "60626");
+		
+		//test functions
+		rep = logic.createCustomer(request);
+		logic.deleteCustomer(request);
+		assertSame(request.getEmail(), rep.getEmail());
+	}
+	
+	@Test
+	public void testUpdate() 
+	{
+		//declare variables
+		CustomerLogic logic = new CustomerLogic();
+		CustomerRep rep = new CustomerRep();
+		CustomerRequest request = new CustomerRequest("mclaypool@homtail.com",
+				"Max", "Strike", "Claypool", "a", "555-555-5555", "123 test st.",
+				"Test City", "IL", "60626");
+		
+		//test functions
+		logic.createCustomer(request);
+		request = new CustomerRequest("mclaypool@homtail.com",
+				"Max", "Strike", "Claypool", "a", "316-616-5555", "123 test st.",
+				"Test City", "IL", "60626");
+		
+		//test functions
+		rep = logic.updateCustomer(request);
+		logic.deleteCustomer(request);
+		assertSame(request.getPhone(), rep.getPhone());
+	}
+	
+	@Test
+	public void testGet() 
+	{
+		//declare variables
+		CustomerLogic logic = new CustomerLogic();
+		CustomerRep rep = new CustomerRep();
+		CustomerRequest request = new CustomerRequest("mclaypool@homtail.com",
+				"Max", "Strike", "Claypool", "a", "555-555-5555", "123 test st.",
+				"Test City", "IL", "60626");
+		
+		//test functions
+		logic.createCustomer(request);
+		request = new CustomerRequest("mclaypool@homtail.com", "a");
+		
+		//test functions
+		rep = logic.getCustomer(request);
+		logic.deleteCustomer(request);
+		assertSame(request.getEmail(), rep.getEmail());
+	}
+	
+	@Test
+	public void testDelete() 
+	{
+		//declare variables
+		CustomerLogic logic = new CustomerLogic();
+		CustomerRep rep = new CustomerRep();
+		CustomerRequest request = new CustomerRequest("mclaypool@homtail.com",
+				"Max", "Strike", "Claypool", "a", "555-555-5555", "123 test st.",
+				"Test City", "IL", "60626");
+		
+		//test functions
+		logic.createCustomer(request);
+		logic.deleteCustomer(request);
+		assertNull(null);
+	}
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping>
+    <class name="com.customer.CustomerRequest" table="customer">
+    <class name="com.customer.CustomerRepresentation" table="customer">
+    
+		<meta attribute="class-description">
+			This class contains the customer detail. 
+		</meta>
+		
+		<id name="id" type="int" column="id">
+			<generator class="native"/>
+		</id>
+		
+		<property name="email" column="email" type="string"/>
+		<property name="firstName" column="firstName" type="string"/>
+		<property name="middleName" column="middleName" type="string"/>
+		<property name="lastName" column="lastName" type="string"/>
+		<property name="password" column="password" type="string"/>
+		<property name="phone" column="phone" type="string"/>
+		<property name="street" column="street" type="string"/>
+		<property name="city" column="city" type="string"/>
+		<property name="state" column="state" type="string"/>
+		<property name="zipCode" column="zipCode" type="string"/>
+ 
+    </class>
+</hibernate-mapping>

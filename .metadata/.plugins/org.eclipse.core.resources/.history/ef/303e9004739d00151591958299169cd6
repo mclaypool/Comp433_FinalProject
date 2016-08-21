@@ -1,0 +1,18 @@
+package com.customer;
+
+import java.util.List;
+import javax.jws.WebService;
+import com.customer.CustomerRep;
+import com.customer.CustomerRequest;
+import com.product.ProductRep;
+
+@WebService
+public interface CustomerService {
+	public CustomerRep getCustomer(CustomerRequest request);
+	public CustomerRep updateCustomer(CustomerRequest request);
+	public void deleteCustomer(CustomerRequest request);
+	public CustomerRep createCustomer(CustomerRequest request);
+	public List<ProductRep> getProductsByTitle(String title);
+	public List<ProductRep> getProductsByGenre(String genre);
+	public List<ProductRep> getProductsByAuthor(String author);
+}

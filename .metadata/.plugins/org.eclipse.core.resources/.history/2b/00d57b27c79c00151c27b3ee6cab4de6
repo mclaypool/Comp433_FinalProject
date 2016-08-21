@@ -1,0 +1,168 @@
+/******************************************************************************
+* Class:	Order
+* Purpose:	
+*******************************************************************************
+* Style:		https://google.github.io/styleguide/javaguide.html
+* Column limit: 80
+******************************************************************************/
+package com.order;
+import java.util.Date;
+
+public class Order{
+
+	/**************************************************************************
+	* global variables
+	**************************************************************************/
+	private int orderId; //Primary
+	private String customerId; //customerId
+	private int productId;
+	private int quantity;
+	private String phone;
+	private String street;
+	private String city;
+	private String state;
+	private String zipCode;
+	private String status;
+	private Date orderDate;
+	private Date shippedDate;
+	private Date deliveryDate;
+	private Date cancelledDate;
+
+	/**************************************************************************
+	* constructor
+	**************************************************************************/
+	public Order(){}
+	
+	public Order(String email, int productId, int quantity, 
+			String phone, String street, String city, String state, 
+			String zipCode, String status, Date orderDate, Date shippedDate, 
+			Date deliveryDate, Date cancelledDate) {
+
+		this.customerId = email;
+		this.productId = productId;
+		this.setQuantity(quantity);
+		this.phone = phone;
+		this.street = street;
+		this.city = city;
+		this.state = state;
+		this.zipCode = zipCode;
+		this.status = status;
+		this.orderDate = orderDate;
+		this.shippedDate = shippedDate;
+		this.deliveryDate = deliveryDate;
+		this.cancelledDate = cancelledDate;
+	}
+	
+	public Order(int orderId, String email, int productId, int quantity, 
+			String phone, String street, String city, 
+			String state, String zipCode, String status, Date orderDate, 
+			Date shippedDate, Date deliveryDate, Date cancelledDate) {
+
+		this.orderId = orderId;
+		this.customerId = email;
+		this.productId = productId;
+		this.quantity = quantity;
+		this.phone = phone;
+		this.street = street;
+		this.city = city;
+		this.state = state;
+		this.zipCode = zipCode;
+		this.status = status;
+		this.orderDate = orderDate;
+		this.shippedDate = shippedDate;
+		this.deliveryDate = deliveryDate;
+		this.cancelledDate = cancelledDate;
+	}
+	
+
+	/**************************************************************************
+	* getter setter
+	**************************************************************************/
+	public int getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(int orderId) {
+		this.orderId = orderId;
+	}
+	public String getEmail() {
+		return customerId;
+	}
+	public void setEmail(String email) {
+		this.customerId = email;
+	}
+	public int getProductId() {
+		return productId;
+	}
+	public void setProductId(int productId) {
+		this.productId = productId;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public String getStreet() {
+		return street;
+	}
+	public void setStreet(String street) {
+		this.street = street;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
+	public String getZipCode() {
+		return zipCode;
+	}
+	public void setZipCode(String zipCode) {
+		this.zipCode = zipCode;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public Date getOrderDate() {
+		return orderDate;
+	}
+	public void setOrderDate(Date orderDate) {
+		this.orderDate = orderDate;
+	}
+	public Date getShippedDate() {
+		return shippedDate;
+	}
+	public void setShippedDate(Date shippedDate) {
+		this.shippedDate = shippedDate;
+	}
+	public Date getDeliveryDate() {
+		return deliveryDate;
+	}
+	public void setDeliveryDate(Date deliveryDate) {
+		this.deliveryDate = deliveryDate;
+	}
+	public Date getCancelledDate() {
+		return cancelledDate;
+	}
+	public void setCancelledDate(Date cancelledDate) {
+		this.cancelledDate = cancelledDate;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+}

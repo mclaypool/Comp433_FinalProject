@@ -1,0 +1,37 @@
+package com.product;
+import java.util.List;
+
+public class ProductLogic {
+
+	/**************************************************************************
+	* members
+	**************************************************************************/
+	private ProductDao conn = new ProductDao();
+	
+	/**************************************************************************
+	* methods
+	**************************************************************************/
+	public ProductRep createProduct(ProductRequest request){
+		return conn.createProduct(request);
+	}
+	
+	public void deleteProductById(int productId)
+	{		
+		conn.deleteProductById(productId);
+	}
+	
+	public List<ProductRep> getProductsByTitle(String title){
+		List results = conn.getProductsByAttribute("title", title);
+		List<ProductRep> productList = null;
+		
+		
+		return productList;
+	}
+	
+	/*
+	public ProductRep updateProduct(ProductRequest request){
+		return conn.updateProduct(request);
+	}
+*/
+
+}

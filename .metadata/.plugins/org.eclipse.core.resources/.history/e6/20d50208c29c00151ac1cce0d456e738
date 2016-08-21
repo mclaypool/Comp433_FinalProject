@@ -1,0 +1,36 @@
+package com.customer;
+import com.product.ProductLogic;
+
+public class CustomerLogic{
+	
+	/**************************************************************************
+	* members
+	**************************************************************************/
+	private CustomerDao customerConn = new CustomerDao();
+	@SuppressWarnings("unused")
+	private ProductLogic productLogic = new ProductLogic();
+
+	
+	/**************************************************************************
+	* methods
+	**************************************************************************/
+	public CustomerRep getCustomer(CustomerRequest request)
+	{
+		return customerConn.getCustomer(request);
+	}
+	
+	public CustomerRep updateCustomer(CustomerRequest request)
+	{
+		return customerConn.updateCustomer(request);
+	}
+	
+	public void deleteCustomer(CustomerRequest request)
+	{
+		customerConn.deleteCustomer(request);
+	}
+
+	public CustomerRep createCustomer(CustomerRequest request)
+	{
+		return customerConn.createCustomer(request);
+	}
+}

@@ -1,0 +1,32 @@
+package com.partner;
+
+public class PartnerLogic {
+	
+	/**************************************************************************
+	* members
+	**************************************************************************/
+	private PartnerDao conn = new PartnerDao();
+	
+	/**************************************************************************
+	* methods
+	**************************************************************************/
+	public PartnerRep getPartner(PartnerRequest request)
+	{
+		return conn.getPartner(request);
+	}
+	
+	public PartnerRep updatePartner(PartnerRequest request)
+	{
+		return conn.updatePartner(request);
+	}
+	
+	public void deletePartner(PartnerRequest request)
+	{
+		conn.deletePartner(request);
+	}
+	
+	public PartnerRep createPartner(PartnerRequest request)
+	{
+		return conn.createPartner(request);
+	}
+}
